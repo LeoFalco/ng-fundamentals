@@ -21,12 +21,4 @@ export class EventListComponent {
     }
   };
 
-
-  constructor() {
-    console.log(this.event);
-  }
-
-  handleClickEvent(data) {
-    console.log(data);
-  }
 }

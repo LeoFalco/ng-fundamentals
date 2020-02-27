@@ -3,5 +3,6 @@
     <h1>Upcomming asss events</h1>
     <hr>
 
-    <app-event-thumbnail [event]="this.event" (clickEvent)="handleClickEvent($event)"></app-event-thumbnail>
+    <app-event-thumbnail #thumbnail [event]="this.event"></app-event-thumbnail>
+
   </div>
