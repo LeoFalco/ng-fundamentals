@@ -1,12 +1,12 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { EventsAppModule } from './app/events-app.module';
+import { AppEventRootModule } from './app/events-app-root.module';
 import { environment } from './environments/environment';
 
 if (environment.production) {
   enableProdMode();
 }
 
-platformBrowserDynamic().bootstrapModule(EventsAppModule)
+platformBrowserDynamic().bootstrapModule(AppEventRootModule)
   .catch(err => console.error(err));

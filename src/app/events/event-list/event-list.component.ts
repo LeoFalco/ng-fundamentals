@@ -1,3 +1,4 @@
+import { Event } from './../../../model/model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
@@ -6,7 +7,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./event-list.component.css']
 })
 export class EventListComponent {
-  event = {
+  event: Event = {
     id: 1,
     name: 'Angular connect',
     date: '9/26/2026',
@@ -25,4 +26,7 @@ export class EventListComponent {
     console.log(this.event);
   }
 
+  handleClickEvent(data) {
+    console.log(data);
+  }
 }
