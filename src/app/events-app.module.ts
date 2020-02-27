@@ -1,3 +1,4 @@
+import { EventsLitComponent } from './events/events-list.component';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -8,7 +9,8 @@ import { EventsAppComponent } from './events-app.component';
     BrowserModule
   ],
   declarations: [
-    EventsAppComponent
+    EventsAppComponent,
+    EventsLitComponent
   ],
   providers: [],
   bootstrap: [EventsAppComponent]
