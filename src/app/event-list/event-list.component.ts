@@ -1,4 +1,4 @@
-import { Event } from './../../../model/model';
+import { Event } from './../../model/model';
 import { Component, OnInit } from '@angular/core';
 
 @Component({
