@@ -1,0 +1,17 @@
+.nav-bar.nav {
+  font-size: 15px;
+}
+
+
+#searchForm{
+  padding-right: 75px;
+}
+
+
+
+@media(max-width: 991px){
+  #searchForm{
+    display: none;
+  }
+
+}
