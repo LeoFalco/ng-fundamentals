@@ -1,3 +1,4 @@
+import { EventListResolverService } from './../services/event-list-resolver/event-list-resolver.service';
 import { EventRouteActivatorService } from './../services/event-route-activator/event-route-activator.service';
 import { NotFoundComponent } from './../components/errors/not-found/not-found.component';
 import { CreateEventComponent } from './../components/create-event/create-event.component';
@@ -14,7 +15,10 @@ export const routes: Routes = [
   },
   {
     path: 'events',
-    component: EventListComponent
+    component: EventListComponent,
+    resolve: {
+      events: EventListResolverService
+    }
   },
   {
     // needs to come first from route /events/:id
