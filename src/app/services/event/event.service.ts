@@ -320,7 +320,13 @@ export class EventService {
 
   constructor() { }
 
-  list() {
+  getEvents(): Event[] {
     return this.events
   }
+
+  getEvent(id: number): Event {
+    return this.events.find(event => event.id === id)
+  }
+
+
 }
