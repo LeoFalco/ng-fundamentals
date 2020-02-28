@@ -35,4 +35,8 @@ export const routes: Routes = [
     path: '404',
     component: NotFoundComponent
   },
+  {
+    path: 'user',
+    loadChildren: () => import('./../modules/user/user.module').then(m => m.UserModule)
+  }
 ]

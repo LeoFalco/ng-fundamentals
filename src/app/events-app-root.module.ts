@@ -26,7 +26,7 @@ import { NotFoundComponent } from './components/errors/not-found/not-found.compo
     RootComponent,
     EventDetailComponent,
     CreateEventComponent,
-    NotFoundComponent
+    NotFoundComponent,
   ],
   providers: [
     EventService,
