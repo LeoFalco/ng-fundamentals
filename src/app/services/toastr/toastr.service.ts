@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-
+import * as toastr from 'toastr';
 
 @Injectable({
   providedIn: 'root'
