@@ -8,6 +8,8 @@ import { Router } from '@angular/router';
 })
 export class CreateEventComponent implements OnInit {
 
+  ngFrom: any
+
   constructor(private router: Router) { }
 
   ngOnInit(): void {
@@ -17,5 +19,9 @@ export class CreateEventComponent implements OnInit {
   cancel() {
     console.log('cancel')
     this.router.navigate(['/events'])
+  }
+
+  saveEvent(e) {
+    console.log('teste')
   }
 }

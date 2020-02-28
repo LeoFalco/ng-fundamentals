@@ -1,3 +1,5 @@
+import { EventRouteActivatorService } from './../services/event-route-activator/event-route-activator.service';
+import { NotFoundComponent } from './../components/errors/not-found/not-found.component';
 import { CreateEventComponent } from './../components/create-event/create-event.component';
 import { Routes } from "@angular/router";
 
@@ -21,9 +23,13 @@ export const routes: Routes = [
   },
   {
     path: 'events/:id',
-    component: EventDetailComponent
+    component: EventDetailComponent,
+    canActivate: [EventRouteActivatorService]
   },
-
+  {
+    path: '404',
+    component: NotFoundComponent
+  },
 
 
 ]
