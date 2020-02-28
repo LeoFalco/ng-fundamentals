@@ -26,3 +26,15 @@ export interface Session {
   abstract: string,
   voters: string[]
 }
+
+export interface Credential {
+  userName: string;
+  password: string
+}
+
+export interface User {
+  id: number,
+  firstName: string,
+  lastName: string,
+  userName: string
+}
