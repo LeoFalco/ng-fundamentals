@@ -23,9 +23,4 @@ export class EventListComponent implements OnInit {
     console.log('teste')
     this.events = this.eventService.getEvents();
   }
-
-  handleThumbnailClick(eventName: string) {
-    this.toastrService.success({ message: eventName })
-
-  }
 }

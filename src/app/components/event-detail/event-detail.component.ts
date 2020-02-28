@@ -1,3 +1,4 @@
+import { ActivatedRoute } from '@angular/router';
 import { Event } from './../../models/model';
 import { EventService } from './../../services/event/event.service';
 import { Component, OnInit, Input } from '@angular/core';
@@ -13,11 +14,15 @@ export class EventDetailComponent implements OnInit {
   @Input()
   event: Event
 
-  constructor(private eventService: EventService) { }
+  constructor(
+    private eventService: EventService,
+    private activatedRoute: ActivatedRoute) {
+
+  }
 
   ngOnInit(): void {
     // todo param from url
-    this.event = this.eventService.getEvent(1)
+    this.event = this.eventService.getEvent(+this.activatedRoute.snapshot.paramMap.get('id'))
   }
 
 }
