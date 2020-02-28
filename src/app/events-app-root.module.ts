@@ -1,3 +1,4 @@
+import { EventService } from './services/event/event.service';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 
@@ -16,7 +17,7 @@ import { NavBarComponent } from './components/nav-bar/nav-bar.component';
     NavBarComponent,
     RootComponent
   ],
-  providers: [],
+  providers: [EventService],
   bootstrap: [RootComponent]
 })
 export class AppEventRootModule { }
