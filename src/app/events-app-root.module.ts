@@ -11,7 +11,7 @@ import { RootComponent } from './components/root/root.component';
 import { routes } from './routes/routes';
 import { EventService } from './services/event/event.service';
 import { ToastrService } from './services/toastr/toastr.service';
-import { CreateEventComponent } from './components/create-event/create-event.component';
+import { CreateEventComponent, canDeactivateCreateEventComponent } from './components/create-event/create-event.component';
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 
 @NgModule({
@@ -28,7 +28,13 @@ import { NotFoundComponent } from './components/errors/not-found/not-found.compo
     CreateEventComponent,
     NotFoundComponent
   ],
-  providers: [EventService, ToastrService, EventRouteActivatorService],
+  providers: [
+    EventService,
+    ToastrService,
+    EventRouteActivatorService,
+    { provide: 'canDeactivateCreateEventComponent', useValue: canDeactivateCreateEventComponent }
+
+  ],
   bootstrap: [RootComponent]
 })
 export class AppEventRootModule { }

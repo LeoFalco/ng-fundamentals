@@ -19,7 +19,8 @@ export const routes: Routes = [
   {
     // needs to come first from route /events/:id
     path: 'events/new',
-    component: CreateEventComponent
+    component: CreateEventComponent,
+    canDeactivate: ['canDeactivateCreateEventComponent']
   },
   {
     path: 'events/:id',
@@ -30,6 +31,4 @@ export const routes: Routes = [
     path: '404',
     component: NotFoundComponent
   },
-
-
 ]
