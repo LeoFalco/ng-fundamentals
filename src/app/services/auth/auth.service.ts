@@ -21,10 +21,12 @@ export class AuthService {
       lastName: 'Falco'
     }
 
+    localStorage.setItem('currentUser', JSON.stringify(this.currentUser))
+
     return this.currentUser
   }
 
-  isAuthenticated() {
+  isAuthenticated(): boolean {
     return !!this.currentUser
   }
 }
