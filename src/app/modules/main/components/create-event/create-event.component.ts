@@ -1,7 +1,6 @@
 import { Event } from './../../../../models/model';
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
-import { isDate } from 'util';
 
 @Component({
   selector: 'app-create-event',

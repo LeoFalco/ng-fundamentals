@@ -11,7 +11,7 @@ export class EventRouteActivatorService implements CanActivate {
 
   canActivate(routeSnapshot: ActivatedRouteSnapshot) {
 
-    let eventExists = !!this.eventService.getEvent(+routeSnapshot.paramMap.get('id'))
+    let eventExists = !!this.eventService.getEvent(routeSnapshot.paramMap.get('id'))
 
     console.log(eventExists)
     if (!eventExists) {

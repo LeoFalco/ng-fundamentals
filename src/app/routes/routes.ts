@@ -1,3 +1,4 @@
+import { EventResolverService } from './../services/event-resolver/event-resolver.service';
 import { EventListResolverService } from './../services/event-list-resolver/event-list-resolver.service';
 import { EventRouteActivatorService } from './../services/event-route-activator/event-route-activator.service';
 import { Routes } from "@angular/router";
@@ -18,7 +19,7 @@ export const routes: Routes = [
     component: EventListComponent,
     resolve: {
       events: EventListResolverService
-    }
+    },
   },
   {
     // needs to come first from route /events/:id
@@ -29,14 +30,19 @@ export const routes: Routes = [
   {
     path: 'events/:id',
     component: EventDetailComponent,
-    canActivate: [EventRouteActivatorService]
+    canActivate: [EventRouteActivatorService],
+    resolve: {
+      events: EventResolverService
+    },
+  },
+  {
+    // load from another module
+    path: 'user',
+    loadChildren: () => import('./../modules/user/user.module').then(m => m.UserModule)
   },
   {
     path: '404',
     component: NotFoundComponent
   },
-  {
-    path: 'user',
-    loadChildren: () => import('./../modules/user/user.module').then(m => m.UserModule)
-  }
+
 ]

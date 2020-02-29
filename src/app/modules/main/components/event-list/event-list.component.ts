@@ -1,3 +1,6 @@
+import { Event } from './../../../../models/model';
+import { Observable } from 'rxjs';
+import { EventService } from 'src/app/services/event/event.service';
 import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 
@@ -9,15 +12,17 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventListComponent implements OnInit {
 
-  events: Event[]
+  events: Observable<Event[]>
 
   constructor(
-    private activatedRoute: ActivatedRoute) {
+    private activatedRoute: ActivatedRoute, private eventService: EventService) {
 
   }
 
   ngOnInit() {
     console.log('teste')
-    this.events = this.activatedRoute.snapshot.data['events']
+
+    this.activatedRoute.data
+    this.events = this.eventService.getEvents()
   }
 }

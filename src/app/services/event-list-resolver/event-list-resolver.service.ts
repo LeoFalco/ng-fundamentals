@@ -11,6 +11,12 @@ export class EventListResolverService implements Resolve<Event[]> {
   constructor(private eventService: EventService) { }
 
   resolve() {
-    return this.eventService.getEvents()
+
+    console.log('teste resolve')
+
+    this.eventService.getEvents();
+
+
+    return this.eventService.getEventsSnapshot()
   }
 }

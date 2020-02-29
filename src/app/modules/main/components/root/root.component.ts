@@ -1,4 +1,7 @@
+import { NgxSpinnerService } from 'ngx-spinner';
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { LayoutService } from 'src/app/services/layout/layout.service';
 
 @Component({
   selector: 'app-root',
@@ -7,9 +10,22 @@ import { Component, OnInit } from '@angular/core';
 })
 export class RootComponent implements OnInit {
 
-  constructor() { }
+  isSpinnerVisibile$: Observable<boolean> = this.layoutService.isNavigationPending$;
+
+  constructor(private layoutService: LayoutService, private spinner: NgxSpinnerService) { }
+
 
   ngOnInit(): void {
+    this.layoutService.isNavigationPending$.subscribe(pending => {
+
+
+      if (pending) {
+        this.spinner.show()
+      } else {
+        this.spinner.hide(undefined, 300)
+      }
+
+    })
   }
 
 }
