@@ -29,9 +29,9 @@
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
           <li [ngSwitch]="authService.isAuthenticated()">
-            <a *ngSwitchCase="false" routerLink="/user/login">Login</a>
-
-            <a *ngSwitchCase="true" routerLink="/user/profile">Welcome {{ authService.currentUser?.firstName }}</a>
+            <a *ngSwitchCase="false" routerLink="/user/login" routerLinkActive="active">Login</a>
+            <a *ngSwitchCase="true" routerLink="/user/profile" routerLinkActive="active">Welcome
+              {{ authService.currentUser?.firstName }}</a>
           </li>
         </ul>
       </div>
@@ -39,9 +39,7 @@
         <div class="form-group">
           <input type="text" class="form-control" placeholder="Search Sessions">
         </div>
-        <button class="btn btn-default">
-          Search
-        </button>
+        <button class="btn btn-default"> Search </button>
       </form>
     </div>
   </div>

@@ -1,8 +1,8 @@
 import { enableProdMode } from '@angular/core';
 import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
 
-import { AppEventRootModule } from './app/events-app-root.module';
 import { environment } from './environments/environment';
+import { AppEventRootModule } from './app/modules/main/events-app-root.module';
 
 if (environment.production) {
   enableProdMode();

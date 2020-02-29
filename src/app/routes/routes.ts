@@ -1,11 +1,11 @@
 import { EventListResolverService } from './../services/event-list-resolver/event-list-resolver.service';
 import { EventRouteActivatorService } from './../services/event-route-activator/event-route-activator.service';
-import { NotFoundComponent } from './../components/errors/not-found/not-found.component';
-import { CreateEventComponent } from './../components/create-event/create-event.component';
 import { Routes } from "@angular/router";
+import { EventListComponent } from '../modules/main/components/event-list/event-list.component';
+import { CreateEventComponent } from '../modules/main/components/create-event/create-event.component';
+import { EventDetailComponent } from '../modules/main/components/event-detail/event-detail.component';
+import { NotFoundComponent } from '../modules/main/components/errors/not-found/not-found.component';
 
-import { EventDetailComponent } from './../components/event-detail/event-detail.component';
-import { EventListComponent } from './../components/event-list/event-list.component';
 
 export const routes: Routes = [
   {
