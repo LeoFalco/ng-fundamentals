@@ -1,4 +1,3 @@
-import { EventRouteActivatorService } from './services/event-route-activator/event-route-activator.service';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -8,11 +7,10 @@ import { EventListComponent } from './components/event-list/event-list.component
 import { EventThumbnailComponent } from './components/event-thumbnail/event-thumbnail.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RootComponent } from './components/root/root.component';
-import { routes } from './routes/routes';
-import { EventService } from './services/event/event.service';
-import { ToastrService } from './services/toastr/toastr.service';
+
 import { CreateEventComponent, canDeactivateCreateEventComponent } from './components/create-event/create-event.component';
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
+import { routes } from 'src/app/routes/routes';
 
 @NgModule({
   imports: [
@@ -29,9 +27,6 @@ import { NotFoundComponent } from './components/errors/not-found/not-found.compo
     NotFoundComponent,
   ],
   providers: [
-    EventService,
-    ToastrService,
-    EventRouteActivatorService,
     { provide: 'canDeactivateCreateEventComponent', useValue: canDeactivateCreateEventComponent }
 
   ],
