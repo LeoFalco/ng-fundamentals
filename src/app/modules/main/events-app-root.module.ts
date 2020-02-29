@@ -1,3 +1,4 @@
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
@@ -15,7 +16,9 @@ import { routes } from 'src/app/routes/routes';
 @NgModule({
   imports: [
     BrowserModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    FormsModule,
+    ReactiveFormsModule
   ],
   declarations: [
     EventThumbnailComponent,
@@ -25,6 +28,7 @@ import { routes } from 'src/app/routes/routes';
     EventDetailComponent,
     CreateEventComponent,
     NotFoundComponent,
+
   ],
   providers: [
     { provide: 'canDeactivateCreateEventComponent', useValue: canDeactivateCreateEventComponent }

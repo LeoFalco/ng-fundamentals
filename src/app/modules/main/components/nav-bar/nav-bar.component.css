@@ -26,3 +26,15 @@
     color: #ebebeb;
     background-color: #283542;
 }
+
+
+.shadow{
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+
+.fixed-top{
+  position: fixed;
+  width: 100%;
+  z-index: 1;
+}

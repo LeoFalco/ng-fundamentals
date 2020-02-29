@@ -122,6 +122,10 @@
               "devServerTarget": "ng-fundamentals:serve:production"
             }
           }
+        },
+        "deploy": {
+          "builder": "@angular/fire:deploy",
+          "options": {}
         }
       }
     }

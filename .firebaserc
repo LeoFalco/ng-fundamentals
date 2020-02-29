@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "angular-events-d24fd": {
+      "hosting": {
+        "ng-fundamentals": [
+          "angular-events-d24fd"
+        ]
+      }
+    }
+  }
+}
