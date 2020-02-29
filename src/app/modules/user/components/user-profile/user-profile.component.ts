@@ -1,7 +1,8 @@
-import { Router } from '@angular/router';
-import { AuthService } from './../../../../services/auth/auth.service';
 import { Component, OnInit } from '@angular/core';
-import { FormGroup, FormControl, Validators } from '@angular/forms';
+import { FormControl, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthService } from '../../../../services/auth/auth.service';
 
 @Component({
   selector: 'app-user-profile',
@@ -16,7 +17,7 @@ export class UserProfileComponent implements OnInit {
 
   ngOnInit(): void {
 
-    let currentUser = this.authService.currentUser;
+    let currentUser = this.authService.currentUser();
 
     let firstName = new FormControl(currentUser.firstName, Validators.required);
     let lastName = new FormControl(currentUser.lastName, Validators.required);
@@ -40,12 +41,16 @@ export class UserProfileComponent implements OnInit {
 
   saveProfile(formValue: { firstName: string, lastName: string }) {
     if (this.profileForm.valid) {
-      console.log(formValue)
     }
   }
 
   cancel() {
     this.router.navigate(['events'])
+  }
+
+  logout() {
+    this.authService.logout()
+    this.router.navigate(['user', 'login'])
   }
 
 }

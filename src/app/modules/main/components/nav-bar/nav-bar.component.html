@@ -31,7 +31,7 @@
           <li [ngSwitch]="authService.isAuthenticated()">
             <a *ngSwitchCase="false" routerLink="/user/login" routerLinkActive="active">Login</a>
             <a *ngSwitchCase="true" routerLink="/user/profile" routerLinkActive="active">Welcome
-              {{ authService.currentUser?.firstName }}</a>
+              {{ authService.currentUser()?.firstName }}</a>
           </li>
         </ul>
       </div>
