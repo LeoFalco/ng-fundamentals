@@ -1,3 +1,4 @@
+import { User } from './../../../../models/model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { Router } from '@angular/router';
@@ -11,7 +12,9 @@ import { AuthService } from '../../../../services/auth/auth.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  public profileForm: FormGroup
+  profileForm: FormGroup
+  firstName: FormControl
+  lastName: FormControl
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -19,24 +22,13 @@ export class UserProfileComponent implements OnInit {
 
     let currentUser = this.authService.currentUser();
 
-    let firstName = new FormControl(currentUser.firstName, Validators.required);
-    let lastName = new FormControl(currentUser.lastName, Validators.required);
+    this.firstName = new FormControl(currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-z].*')]);
+    this.lastName = new FormControl(currentUser.lastName, [Validators.required, Validators.pattern('[a-zA-z].*')]);
 
     this.profileForm = new FormGroup({
-      firstName,
-      lastName
-
+      firstName: this.firstName,
+      lastName: this.lastName
     })
-  }
-
-  isFirstNameValid(): boolean {
-    let firstNameControl = this.profileForm.controls.firstName;
-    return !firstNameControl.touched || firstNameControl.valid
-  }
-
-  isLastNameValid(): boolean {
-    let lastNameControl = this.profileForm.controls.lastName;
-    return !lastNameControl.touched || lastNameControl.valid
   }
 
   saveProfile(formValue: { firstName: string, lastName: string }) {
