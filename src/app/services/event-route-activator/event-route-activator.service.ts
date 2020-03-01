@@ -15,7 +15,7 @@ export class EventRouteActivatorService implements CanActivate {
 
     console.log(eventExists)
     if (!eventExists) {
-      this.router.navigate(['/404'])
+      this.router.navigate(['not-found'])
     }
 
     return eventExists

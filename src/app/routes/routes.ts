@@ -1,3 +1,4 @@
+import { CreateSessionComponent } from './../modules/main/components/create-session/create-session.component';
 import { EventResolverService } from './../services/event-resolver/event-resolver.service';
 import { EventListResolverService } from './../services/event-list-resolver/event-list-resolver.service';
 import { EventRouteActivatorService } from './../services/event-route-activator/event-route-activator.service';
@@ -17,9 +18,6 @@ export const routes: Routes = [
   {
     path: 'events',
     component: EventListComponent,
-    resolve: {
-      events: EventListResolverService
-    },
   },
   {
     // needs to come first from route /events/:id
@@ -31,17 +29,20 @@ export const routes: Routes = [
     path: 'events/:id',
     component: EventDetailComponent,
     canActivate: [EventRouteActivatorService],
-    resolve: {
-      events: EventResolverService
-    },
   },
+  {
+    path: 'events/sessions/new',
+    component: CreateSessionComponent,
+  },
+
+
   {
     // load from another module
     path: 'user',
     loadChildren: () => import('./../modules/user/user.module').then(m => m.UserModule)
   },
   {
-    path: '404',
+    path: 'not-found',
     component: NotFoundComponent
   },
 

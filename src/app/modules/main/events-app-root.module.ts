@@ -26,6 +26,7 @@ import { RootComponent } from './components/root/root.component';
 import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
+import { CreateSessionComponent } from './components/create-session/create-session.component';
 
 var firebaseConfig = {
   apiKey: "AIzaSyCZRjo3xwPvZOyNdpprmjwBlG12qwqrqQ8",
@@ -58,7 +59,8 @@ var firebaseConfig = {
     RootComponent,
     EventDetailComponent,
     CreateEventComponent,
-    NotFoundComponent
+    NotFoundComponent,
+    CreateSessionComponent
   ],
   providers: [
     { provide: 'canDeactivateCreateEventComponent', useValue: canDeactivateCreateEventComponent }
