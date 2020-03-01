@@ -1,14 +1,16 @@
-import { Credential } from './../../models/model';
-import { Injectable, OnInit } from '@angular/core';
 import { User } from 'src/app/models/model';
+
 import { JsonPipe } from '@angular/common';
+import { Injectable, OnInit } from '@angular/core';
+
+import { Credential } from '../../models/model';
 
 @Injectable({
   providedIn: 'root'
 })
-export class AuthService {
+export class AuthService implements IAuthService {
 
-  logout() {
+  logout(): void {
     localStorage.removeItem('current-user')
   }
 
@@ -38,4 +40,11 @@ export class AuthService {
       return null
     }
   }
+}
+
+export interface IAuthService {
+  logout(): void
+  isAuthenticated(): boolean
+  login(credential: Credential): User
+  currentUser(): User
 }

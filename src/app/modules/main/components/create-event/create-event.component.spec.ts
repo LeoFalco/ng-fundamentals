@@ -1,6 +1,28 @@
+import { Credential, User } from './../../../../models/model';
+import { AuthService, IAuthService } from './../../../../services/auth/auth.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateEventComponent } from './create-event.component';
+
+
+class MockAuthService implements IAuthService {
+
+  login(credential: Credential): User {
+    return null
+  }
+
+  logout() {
+
+  }
+
+  isAuthenticated() {
+    return false
+  }
+
+  currentUser() {
+    return null
+  }
+}
 
 describe('CreateEventComponent', () => {
   let component: CreateEventComponent;
@@ -8,9 +30,10 @@ describe('CreateEventComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      declarations: [ CreateEventComponent ]
+      declarations: [CreateEventComponent],
+      providers: [{ provide: AuthService, useClass: MockAuthService }]
     })
-    .compileComponents();
+      .compileComponents();
   }));
 
   beforeEach(() => {
