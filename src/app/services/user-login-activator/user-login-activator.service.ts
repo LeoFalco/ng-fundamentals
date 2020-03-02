@@ -11,6 +11,7 @@ export class UserLoginActivatorService implements CanActivate {
   constructor(private authService: AuthService, private router: Router) { }
 
   canActivate() {
-    return this.authService.isAuthenticated().pipe(first())
+    return true;
+    //return this.authService.isAuthenticated().pipe(first())
   }
 }

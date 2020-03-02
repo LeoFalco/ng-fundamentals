@@ -2,12 +2,9 @@
   font-size: 15px;
 }
 
-
 #searchForm{
   padding-right: 75px;
 }
-
-
 
 @media(max-width: 991px){
   #searchForm{
@@ -27,18 +24,15 @@
     background-color: #283542;
 }
 
-
-.shadow{
+.shadow {
   box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
 }
 
-
-.fixed-top{
+.fixed-top {
   position: fixed;
   width: 100%;
   z-index: 1;
 }
-
 
 .avatar {
   margin-top: 5px;
@@ -48,7 +42,6 @@
   height: 30px;
   border-radius: 50%;
 }
-
 
 .nopad {
   padding: 0;
