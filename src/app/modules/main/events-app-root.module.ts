@@ -1,4 +1,3 @@
-import { routes } from 'src/app/routes/routes';
 
 import { NgModule } from '@angular/core';
 import 'firebase/firestore';
@@ -27,6 +26,7 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
+import { routes } from './../../routes/routes';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCZRjo3xwPvZOyNdpprmjwBlG12qwqrqQ8',
