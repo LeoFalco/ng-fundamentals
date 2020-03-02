@@ -1,8 +1,9 @@
-import { Event } from './../../../../models/model';
-import { Observable } from 'rxjs';
-import { EventService } from 'src/app/services/event/event.service';
-import { ActivatedRoute } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs';
+
+import { EventService } from '../../../../services/event/event.service';
+import { Event } from './../../../../models/model';
 
 
 @Component({

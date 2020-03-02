@@ -1,13 +1,12 @@
-import { Router } from '@angular/router';
-import { AngularFirestore } from '@angular/fire/firestore';
-import { User } from './../../models/model';
-
 import { Injectable } from '@angular/core';
 import { AngularFireAuth } from '@angular/fire/auth';
-
+import { AngularFirestore } from '@angular/fire/firestore';
+import { Router } from '@angular/router';
 import * as firebase from 'firebase';
 import { Observable, of } from 'rxjs';
-import { switchMap, map } from 'rxjs/operators';
+import { map, switchMap } from 'rxjs/operators';
+
+import { User } from './../../models/model';
 
 const GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 

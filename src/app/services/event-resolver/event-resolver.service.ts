@@ -1,7 +1,8 @@
-import { EventService } from './../event/event.service';
-import { Event } from './../../models/model';
 import { Injectable } from '@angular/core';
-import { Resolve, Router, ActivatedRouteSnapshot } from '@angular/router';
+import { ActivatedRouteSnapshot, Resolve } from '@angular/router';
+
+import { Event } from './../../models/model';
+import { EventService } from './../event/event.service';
 
 @Injectable({
   providedIn: 'root'

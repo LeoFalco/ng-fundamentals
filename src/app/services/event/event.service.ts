@@ -1,9 +1,9 @@
-import { Event } from './../../models/model';
-import { Observable } from 'rxjs';
-
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
+import { Observable } from 'rxjs';
 import { first } from 'rxjs/operators';
+
+import { Event } from './../../models/model';
 
 
 @Injectable({

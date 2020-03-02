@@ -1,32 +1,25 @@
-
-import { NgModule } from '@angular/core';
 import 'firebase/firestore';
+
+import { CUSTOM_ELEMENTS_SCHEMA, NgModule } from '@angular/core';
 import { AngularFireModule } from '@angular/fire';
 import { AngularFireAuthModule } from '@angular/fire/auth';
 import { AngularFirestoreModule } from '@angular/fire/firestore';
 import { AngularFireStorageModule } from '@angular/fire/storage';
-
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
-import { RouterModule } from '@angular/router';
-
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { RouterModule } from '@angular/router';
+import { NgxSpinnerModule } from 'ngx-spinner';
 
-
-import {
-  canDeactivateCreateEventComponent, CreateEventComponent
-} from './components/create-event/create-event.component';
+import { routes } from './../../routes/routes';
+import { canDeactivateCreateEventComponent, CreateEventComponent } from './components/create-event/create-event.component';
+import { CreateSessionComponent } from './components/create-session/create-session.component';
 import { NotFoundComponent } from './components/errors/not-found/not-found.component';
 import { EventDetailComponent } from './components/event-detail/event-detail.component';
 import { EventListComponent } from './components/event-list/event-list.component';
 import { EventThumbnailComponent } from './components/event-thumbnail/event-thumbnail.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RootComponent } from './components/root/root.component';
-import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
-
-import { NgxSpinnerModule } from 'ngx-spinner';
-import { CreateSessionComponent } from './components/create-session/create-session.component';
-import { routes } from './../../routes/routes';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCZRjo3xwPvZOyNdpprmjwBlG12qwqrqQ8',

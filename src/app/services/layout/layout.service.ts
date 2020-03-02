@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
-import { Router, RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
+import { NavigationCancel, NavigationEnd, NavigationError, NavigationStart, Router, RouterEvent } from '@angular/router';
 import { Observable } from 'rxjs';
-import { filter, map, distinctUntilChanged } from 'rxjs/operators';
+import { distinctUntilChanged, filter, map } from 'rxjs/operators';
 
 @Injectable({
   providedIn: 'root'

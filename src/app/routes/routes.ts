@@ -1,12 +1,11 @@
-import { CreateSessionComponent } from './../modules/main/components/create-session/create-session.component';
-import { EventResolverService } from './../services/event-resolver/event-resolver.service';
-import { EventListResolverService } from './../services/event-list-resolver/event-list-resolver.service';
-import { EventRouteActivatorService } from './../services/guard/event-route-activator/event-route-activator.service';
 import { Routes } from '@angular/router';
-import { EventListComponent } from '../modules/main/components/event-list/event-list.component';
+
 import { CreateEventComponent } from '../modules/main/components/create-event/create-event.component';
-import { EventDetailComponent } from '../modules/main/components/event-detail/event-detail.component';
 import { NotFoundComponent } from '../modules/main/components/errors/not-found/not-found.component';
+import { EventDetailComponent } from '../modules/main/components/event-detail/event-detail.component';
+import { EventListComponent } from '../modules/main/components/event-list/event-list.component';
+import { CreateSessionComponent } from './../modules/main/components/create-session/create-session.component';
+import { EventRouteActivatorService } from './../services/guard/event-route-activator/event-route-activator.service';
 
 
 export const routes: Routes = [

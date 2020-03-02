@@ -1,9 +1,9 @@
-import { Observable } from 'rxjs';
-import { Event } from './../../../../models/model';
-import { Component, Input, OnInit, OnDestroy } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { EventService } from 'src/app/services/event/event.service';
 import { NgxSpinnerService } from 'ngx-spinner';
+
+import { EventService } from '../../../../services/event/event.service';
+import { Event } from './../../../../models/model';
 
 @Component({
   selector: 'app-event-detail',
