@@ -1,9 +1,9 @@
 import { Event } from './../../models/model';
-import { Observable, Subject, Subscriber } from 'rxjs';
+import { Observable } from 'rxjs';
 
 import { Injectable } from '@angular/core';
 import { AngularFirestore } from '@angular/fire/firestore';
-import { map, first, delay } from 'rxjs/operators';
+import { first } from 'rxjs/operators';
 
 
 @Injectable({
@@ -23,11 +23,7 @@ export class EventService {
   }
 
   getEvent(id: string): Observable<Event> {
-    return this.doc(id).valueChanges().pipe(data => {
-
-      delay(2000)
-      return data
-    });
+    return this.doc(id).valueChanges()
   }
 
   getEventSnapshot(id: string): Promise<Event> {

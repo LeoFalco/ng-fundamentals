@@ -2,6 +2,7 @@ import { AuthService } from 'src/app/services/auth/auth.service';
 
 import { Component, OnInit } from '@angular/core';
 import { Router } from '@angular/router';
+import { ThrowStmt } from '@angular/compiler';
 
 @Component({
   selector: 'app-login',
@@ -21,14 +22,15 @@ export class LoginComponent implements OnInit {
   ngOnInit(): void {
   }
 
-  login(formValue) {
+  async loginWithGoogle() {
+    await this.authService.loginWithGoogle()
+    this.redirectToEvents()
+
+  }
+
+  async login(formValue) {
     console.log(formValue)
-
-    this.authService.login({
-      userName: formValue.userName,
-      password: formValue.password
-    })
-
+    await this.authService.loginWithEmailAndPass(formValue.userName, formValue.password)
     this.redirectToEvents()
   }
 

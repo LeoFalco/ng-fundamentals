@@ -1,50 +1,77 @@
-import { User } from 'src/app/models/model';
+import { Router } from '@angular/router';
+import { AngularFirestore } from '@angular/fire/firestore';
+import { User } from './../../models/model';
 
-import { JsonPipe } from '@angular/common';
-import { Injectable, OnInit } from '@angular/core';
+import { Injectable } from '@angular/core';
+import { AngularFireAuth } from '@angular/fire/auth';
 
-import { Credential } from '../../models/model';
+import * as firebase from 'firebase';
+import { Observable, of } from 'rxjs';
+import { switchMap, map } from 'rxjs/operators';
+
+const GoogleAuthProvider = firebase.auth.GoogleAuthProvider
 
 @Injectable({
   providedIn: 'root'
 })
 export class AuthService implements IAuthService {
 
-  logout(): void {
-    localStorage.removeItem('current-user')
+  user$: Observable<User>;
+
+  constructor(private afAuth: AngularFireAuth, private afs: AngularFirestore, private router: Router) {
+    // Get the auth state, then fetch the Firestore user document or return null
+    this.user$ = this.afAuth.authState.pipe(
+      switchMap(user => {
+        // Logged in
+        if (user) {
+          return this.afs.doc<User>(`users/${user.uid}`).valueChanges();
+        } else {
+          // Logged out
+          return of(null);
+        }
+      })
+    )
   }
 
-  login(credential: Credential): User {
+  private updateUserData(user) {
+    // Sets user data to firestore on login
+    const userRef = this.afs.doc<User>(`users/${user.uid}`);
 
-    let currentUser = {
-      id: 1,
-      userName: 'leoFalco',
-      firstName: 'Leonardo',
-      lastName: 'Falco'
+    const data = {
+      uid: user.uid,
+      email: user.email,
+      displayName: user.displayName,
+      photoURL: user.photoURL
     }
 
-    localStorage.setItem('current-user', JSON.stringify(currentUser))
+    return userRef.set(data, { merge: true })
 
-    return currentUser
   }
 
-  isAuthenticated(): boolean {
-    return !!this.currentUser()
+  async logout(): Promise<void> {
+    await this.afAuth.signOut()
+    this.router.navigate(['/'])
   }
 
-  currentUser(): User {
-    try {
-      return JSON.parse(localStorage.getItem('current-user')) as User
-    } catch (e) {
-      console.warn(e)
-      return null
-    }
+  async loginWithEmailAndPass(email: string, password: string): Promise<void> {
+    let userCredential = await this.afAuth.signInWithEmailAndPassword(email, password)
+    this.updateUserData(userCredential.user)
+
   }
+
+  async loginWithGoogle() {
+    let userCredential = await this.afAuth.signInWithPopup(new GoogleAuthProvider());
+    this.updateUserData(userCredential.user)
+    console.log(userCredential)
+  }
+
+  isAuthenticated(): Observable<boolean> {
+    return this.user$.pipe(map(user => {
+      return !!user;
+    }))
+  }
+
 }
 
 export interface IAuthService {
-  logout(): void
-  isAuthenticated(): boolean
-  login(credential: Credential): User
-  currentUser(): User
 }

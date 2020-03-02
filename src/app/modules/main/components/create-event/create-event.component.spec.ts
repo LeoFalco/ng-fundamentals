@@ -22,6 +22,11 @@ class MockAuthService implements IAuthService {
   currentUser() {
     return null
   }
+
+  createUser(credential: Credential, user: User): User {
+
+    return null
+  }
 }
 
 describe('CreateEventComponent', () => {

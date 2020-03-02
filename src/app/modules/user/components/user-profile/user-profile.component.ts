@@ -1,3 +1,4 @@
+import { first } from 'rxjs/operators';
 import { User } from './../../../../models/model';
 import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
@@ -19,16 +20,25 @@ export class UserProfileComponent implements OnInit {
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-
-    let currentUser = this.authService.currentUser();
-
-    this.firstName = new FormControl(currentUser.firstName, [Validators.required, Validators.pattern('[a-zA-z].*')]);
-    this.lastName = new FormControl(currentUser.lastName, [Validators.required, Validators.pattern('[a-zA-z].*')]);
+    this.firstName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-z].*')]);
+    this.lastName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-z].*')]);
 
     this.profileForm = new FormGroup({
       firstName: this.firstName,
       lastName: this.lastName
     })
+
+    this.authService.user$.pipe(first()).toPromise().then(currentUser => {
+
+      let names = currentUser.displayName.split(' ')
+
+      let [firstName, ...lastNameArray] = names
+
+      let lastName = lastNameArray.join(' ')
+      this.firstName.setValue(currentUser.firstName || firstName)
+      this.lastName.setValue(currentUser.lastName || lastName)
+    });
+
   }
 
   saveProfile(formValue: { firstName: string, lastName: string }) {

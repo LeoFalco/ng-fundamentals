@@ -1,3 +1,4 @@
+import { CreateAccountComponent } from './../modules/user/components/create-account/create-account.component';
 import { UserLoginActivatorService } from './../services/user-login-activator/user-login-activator.service';
 import { UserProfileActivatorService } from './../services/user-profile-activator/user-profile-activator.service';
 import { LoginComponent } from './../modules/user/components/login/login.component';
@@ -13,6 +14,11 @@ export const userRoutes: Routes = [
   {
     path: 'login',
     component: LoginComponent,
+    canActivate: [UserLoginActivatorService]
+  },
+  {
+    path: 'create-account',
+    component: CreateAccountComponent,
     canActivate: [UserLoginActivatorService]
   }
 ]

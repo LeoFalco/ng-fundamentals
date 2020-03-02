@@ -21,8 +21,6 @@ export class EventListComponent implements OnInit {
 
   ngOnInit() {
     console.log('teste')
-
-    this.activatedRoute.data
     this.events = this.eventService.getEvents()
   }
 }

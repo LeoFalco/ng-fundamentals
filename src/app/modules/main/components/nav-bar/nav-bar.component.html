@@ -28,11 +28,11 @@
       </ul>
       <div class="navbar-header navbar-right">
         <ul class="nav navbar-nav">
-          <li [ngSwitch]="authService.isAuthenticated()">
-            <a *ngSwitchCase="false" routerLink="/user/login" routerLinkActive="active">Login</a>
-            <a *ngSwitchCase="true" routerLink="/user/profile" routerLinkActive="active">Welcome
-              {{ authService.currentUser()?.firstName }}</a>
+
+          <li>
+            <div *ngIf="authService.user$ | async as user; then profile else login"></div>
           </li>
+
         </ul>
       </div>
       <form id="searchForm" class="navbar-form navbar-right">
@@ -44,3 +44,15 @@
     </div>
   </div>
 </div>
+
+<ng-template #profile>
+  <a *ngIf="authService.user$ | async as user;" routerLink="/user/profile" routerLinkActive="active" class="nopad">
+    <img [src]="user.photoURL" class="avatar">
+    Welcome {{ user.displayName.split(' ')[0] }}
+  </a>
+</ng-template>
+
+
+<ng-template #login>
+  <a routerLink="/user/login" routerLinkActive="active">Login</a>
+</ng-template>

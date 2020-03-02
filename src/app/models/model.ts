@@ -33,8 +33,10 @@ export interface Credential {
 }
 
 export interface User {
-  id: number,
-  firstName: string,
-  lastName: string,
-  userName: string
+  uid: string,
+  email: string,
+  displayName: string,
+  photoURL: string,
+  firstName?: string,
+  lastName?: string
 }
