@@ -9,9 +9,9 @@ import { Router } from '@angular/router';
 })
 export class CreateEventComponent implements OnInit {
 
-  ngFrom: any
+  ngFrom: any;
 
-  newEvent: Event
+  newEvent: Event;
 
   constructor(private router: Router) { }
 
@@ -20,12 +20,12 @@ export class CreateEventComponent implements OnInit {
 
 
   cancel() {
-    console.log('cancel')
-    this.router.navigate(['/events'])
+    console.log('cancel');
+    this.router.navigate(['/events']);
   }
 
   saveEvent(e) {
-    console.log('teste')
+    console.log('teste');
   }
 }
 

@@ -1,7 +1,7 @@
-import { AuthService } from './../auth/auth.service';
-import { CanActivate, Router } from '@angular/router';
 import { Injectable } from '@angular/core';
+import { CanActivate, Router } from '@angular/router';
 import { first, map } from 'rxjs/operators';
+import { AuthService } from './../../auth/auth.service';
 
 @Injectable({
   providedIn: 'root'
@@ -17,13 +17,13 @@ export class UserProfileActivatorService implements CanActivate {
         map(autenticated => {
 
           if (!autenticated) {
-            this.router.navigate(['user', 'login'])
+            this.router.navigate(['user', 'login']);
 
-            return false
+            return false;
           }
 
-          return true
+          return true;
         })
-      )
+      );
   }
 }

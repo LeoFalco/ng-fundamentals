@@ -13,9 +13,9 @@ import { AuthService } from '../../../../services/auth/auth.service';
 })
 export class UserProfileComponent implements OnInit {
 
-  profileForm: FormGroup
-  firstName: FormControl
-  lastName: FormControl
+  profileForm: FormGroup;
+  firstName: FormControl;
+  lastName: FormControl;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -26,17 +26,17 @@ export class UserProfileComponent implements OnInit {
     this.profileForm = new FormGroup({
       firstName: this.firstName,
       lastName: this.lastName
-    })
+    });
 
     this.authService.user$.pipe(first()).toPromise().then(currentUser => {
 
-      let names = currentUser.displayName.split(' ')
+      const names = currentUser.displayName.split(' ');
 
-      let [firstName, ...lastNameArray] = names
+      const [firstName, ...lastNameArray] = names;
 
-      let lastName = lastNameArray.join(' ')
-      this.firstName.setValue(currentUser.firstName || firstName)
-      this.lastName.setValue(currentUser.lastName || lastName)
+      const lastName = lastNameArray.join(' ');
+      this.firstName.setValue(currentUser.firstName || firstName);
+      this.lastName.setValue(currentUser.lastName || lastName);
     });
 
   }
@@ -47,12 +47,12 @@ export class UserProfileComponent implements OnInit {
   }
 
   cancel() {
-    this.router.navigate(['events'])
+    this.router.navigate(['events']);
   }
 
   logout() {
-    this.authService.logout()
-    this.router.navigate(['user', 'login'])
+    this.authService.logout();
+    this.router.navigate(['user', 'login']);
   }
 
 }

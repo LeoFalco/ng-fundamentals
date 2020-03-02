@@ -3,7 +3,7 @@ import { Event } from './../../../../models/model';
 import { Component, Input, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { EventService } from 'src/app/services/event/event.service';
-import { NgxSpinnerService } from "ngx-spinner";
+import { NgxSpinnerService } from 'ngx-spinner';
 
 @Component({
   selector: 'app-event-detail',
@@ -12,7 +12,7 @@ import { NgxSpinnerService } from "ngx-spinner";
 })
 export class EventDetailComponent implements OnInit, OnDestroy {
 
-  event: Event
+  event: Event;
 
   constructor(
     private eventService: EventService,
@@ -28,7 +28,7 @@ export class EventDetailComponent implements OnInit, OnDestroy {
       .subscribe(event => {
         this.event = event;
 
-      })
+      });
 
   }
 

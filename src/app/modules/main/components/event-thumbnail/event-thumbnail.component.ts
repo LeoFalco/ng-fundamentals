@@ -17,11 +17,11 @@ export class EventThumbnailComponent implements OnInit {
 
   getStartTimeClass(): string[] {
 
-    if (this.event.time == '8:00 am') {
-      return ['green', 'bold']
+    if (this.event.time === '8:00 am') {
+      return ['green', 'bold'];
     }
 
-    return []
+    return [];
   }
 
 }

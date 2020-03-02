@@ -12,11 +12,11 @@ export class EventListResolverService implements Resolve<Event[]> {
 
   resolve() {
 
-    console.log('teste resolve')
+    console.log('teste resolve');
 
     this.eventService.getEvents();
 
 
-    return this.eventService.getEventsSnapshot()
+    return this.eventService.getEventsSnapshot();
   }
 }

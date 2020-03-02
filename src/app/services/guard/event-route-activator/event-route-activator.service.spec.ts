@@ -1,5 +1,5 @@
 import { Router } from '@angular/router';
-import { EventService } from './../event/event.service';
+import { EventService } from './../../event/event.service';
 import { TestBed } from '@angular/core/testing';
 
 import { EventRouteActivatorService } from './event-route-activator.service';

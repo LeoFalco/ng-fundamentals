@@ -8,10 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CreateAccountComponent implements OnInit {
 
-  mouseOverLogin: boolean
+  mouseOverLogin: boolean;
 
-  password: string
-  userName: string
+  password: string;
+  userName: string;
 
   constructor(private authService: AuthService) { }
 

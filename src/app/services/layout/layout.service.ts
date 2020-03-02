@@ -1,10 +1,10 @@
 import { Injectable } from '@angular/core';
 import { Router, RouterEvent, NavigationStart, NavigationEnd, NavigationCancel, NavigationError } from '@angular/router';
 import { Observable } from 'rxjs';
-import { filter, map, distinctUntilChanged } from 'rxjs/operators'
+import { filter, map, distinctUntilChanged } from 'rxjs/operators';
 
 @Injectable({
-  providedIn: "root"
+  providedIn: 'root'
 })
 export class LayoutService {
 

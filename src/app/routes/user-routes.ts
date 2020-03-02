@@ -21,4 +21,4 @@ export const userRoutes: Routes = [
     component: CreateAccountComponent,
     canActivate: [UserLoginActivatorService]
   }
-]
+];

@@ -15,27 +15,27 @@ export class EventService {
 
 
   getEventsSnapshot(): Observable<Event[]> {
-    return this.collection().valueChanges().pipe(first())
+    return this.collection().valueChanges().pipe(first());
   }
 
   getEvents(): Observable<Event[]> {
-    return this.collection().valueChanges()
+    return this.collection().valueChanges();
   }
 
   getEvent(id: string): Observable<Event> {
-    return this.doc(id).valueChanges()
+    return this.doc(id).valueChanges();
   }
 
   getEventSnapshot(id: string): Promise<Event> {
-    return this.getEvent(id).pipe(first()).toPromise()
+    return this.getEvent(id).pipe(first()).toPromise();
   }
 
 
   private collection() {
-    return this.fireStore.collection<Event>('events')
+    return this.fireStore.collection<Event>('events');
   }
 
   private doc(id: string) {
-    return this.collection().doc<Event>(id)
+    return this.collection().doc<Event>(id);
   }
 }

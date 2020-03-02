@@ -2,7 +2,7 @@ import { CreateSessionComponent } from './../modules/main/components/create-sess
 import { EventResolverService } from './../services/event-resolver/event-resolver.service';
 import { EventListResolverService } from './../services/event-list-resolver/event-list-resolver.service';
 import { EventRouteActivatorService } from './../services/event-route-activator/event-route-activator.service';
-import { Routes } from "@angular/router";
+import { Routes } from '@angular/router';
 import { EventListComponent } from '../modules/main/components/event-list/event-list.component';
 import { CreateEventComponent } from '../modules/main/components/create-event/create-event.component';
 import { EventDetailComponent } from '../modules/main/components/event-detail/event-detail.component';
@@ -46,4 +46,4 @@ export const routes: Routes = [
     component: NotFoundComponent
   },
 
-]
+];

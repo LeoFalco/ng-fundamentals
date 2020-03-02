@@ -11,7 +11,7 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { BrowserModule } from '@angular/platform-browser';
 import { RouterModule } from '@angular/router';
 
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations'
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 
 import {
@@ -28,15 +28,15 @@ import { CUSTOM_ELEMENTS_SCHEMA } from '@angular/core';
 import { NgxSpinnerModule } from 'ngx-spinner';
 import { CreateSessionComponent } from './components/create-session/create-session.component';
 
-var firebaseConfig = {
-  apiKey: "AIzaSyCZRjo3xwPvZOyNdpprmjwBlG12qwqrqQ8",
-  authDomain: "angular-events-d24fd.firebaseapp.com",
-  databaseURL: "https://angular-events-d24fd.firebaseio.com",
-  projectId: "angular-events-d24fd",
-  storageBucket: "angular-events-d24fd.appspot.com",
-  messagingSenderId: "275628833694",
-  appId: "1:275628833694:web:5de4e329329546d94bb48f",
-  measurementId: "G-9MPBZ78S09"
+const firebaseConfig = {
+  apiKey: 'AIzaSyCZRjo3xwPvZOyNdpprmjwBlG12qwqrqQ8',
+  authDomain: 'angular-events-d24fd.firebaseapp.com',
+  databaseURL: 'https://angular-events-d24fd.firebaseio.com',
+  projectId: 'angular-events-d24fd',
+  storageBucket: 'angular-events-d24fd.appspot.com',
+  messagingSenderId: '275628833694',
+  appId: '1:275628833694:web:5de4e329329546d94bb48f',
+  measurementId: 'G-9MPBZ78S09'
 };
 
 @NgModule({
@@ -64,7 +64,6 @@ var firebaseConfig = {
   ],
   providers: [
     { provide: 'canDeactivateCreateEventComponent', useValue: canDeactivateCreateEventComponent }
-
   ],
   bootstrap: [RootComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA],

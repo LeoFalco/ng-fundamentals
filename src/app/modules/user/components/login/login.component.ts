@@ -11,11 +11,11 @@ import { ThrowStmt } from '@angular/compiler';
 })
 export class LoginComponent implements OnInit {
 
-  userName: string
+  userName: string;
 
-  password: string
+  password: string;
 
-  mouseOverLogin = false
+  mouseOverLogin = false;
 
   constructor(private authService: AuthService, private router: Router) { }
 
@@ -23,24 +23,24 @@ export class LoginComponent implements OnInit {
   }
 
   async loginWithGoogle() {
-    await this.authService.loginWithGoogle()
-    this.redirectToEvents()
+    await this.authService.loginWithGoogle();
+    this.redirectToEvents();
 
   }
 
   async login(formValue) {
-    console.log(formValue)
-    await this.authService.loginWithEmailAndPass(formValue.userName, formValue.password)
-    this.redirectToEvents()
+    console.log(formValue);
+    await this.authService.loginWithEmailAndPass(formValue.userName, formValue.password);
+    this.redirectToEvents();
   }
 
   cancel() {
-    this.redirectToEvents()
+    this.redirectToEvents();
   }
 
 
   private redirectToEvents() {
-    this.router.navigate(['events'])
+    this.router.navigate(['events']);
   }
 
 }

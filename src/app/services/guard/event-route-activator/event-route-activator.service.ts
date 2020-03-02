@@ -1,4 +1,4 @@
-import { EventService } from './../event/event.service';
+import { EventService } from './../../event/event.service';
 import { Injectable } from '@angular/core';
 import { CanActivate, ActivatedRouteSnapshot, Router } from '@angular/router';
 
@@ -11,13 +11,13 @@ export class EventRouteActivatorService implements CanActivate {
 
   canActivate(routeSnapshot: ActivatedRouteSnapshot) {
 
-    let eventExists = !!this.eventService.getEvent(routeSnapshot.paramMap.get('id'))
+    const eventExists = !!this.eventService.getEvent(routeSnapshot.paramMap.get('id'));
 
-    console.log(eventExists)
+    console.log(eventExists);
     if (!eventExists) {
-      this.router.navigate(['not-found'])
+      this.router.navigate(['not-found']);
     }
 
-    return eventExists
+    return eventExists;
   }
 }

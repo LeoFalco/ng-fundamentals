@@ -12,7 +12,7 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EventListComponent implements OnInit {
 
-  events: Observable<Event[]>
+  events: Observable<Event[]>;
 
   constructor(
     private activatedRoute: ActivatedRoute, private eventService: EventService) {
@@ -20,7 +20,7 @@ export class EventListComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log('teste')
-    this.events = this.eventService.getEvents()
+    console.log('teste');
+    this.events = this.eventService.getEvents();
   }
 }

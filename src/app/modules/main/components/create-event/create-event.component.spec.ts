@@ -8,7 +8,7 @@ import { CreateEventComponent } from './create-event.component';
 class MockAuthService implements IAuthService {
 
   login(credential: Credential): User {
-    return null
+    return null;
   }
 
   logout() {
@@ -16,16 +16,16 @@ class MockAuthService implements IAuthService {
   }
 
   isAuthenticated() {
-    return false
+    return false;
   }
 
   currentUser() {
-    return null
+    return null;
   }
 
   createUser(credential: Credential, user: User): User {
 
-    return null
+    return null;
   }
 }
 

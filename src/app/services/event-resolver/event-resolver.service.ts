@@ -12,10 +12,10 @@ export class EventResolverService implements Resolve<Event> {
 
   resolve(snapshot: ActivatedRouteSnapshot) {
 
-    console.log('teste resolve', snapshot)
+    console.log('teste resolve', snapshot);
 
     this.eventService.getEvents();
 
-    return this.eventService.getEventSnapshot(snapshot.paramMap.get('id'))
+    return this.eventService.getEventSnapshot(snapshot.paramMap.get('id'));
   }
 }
