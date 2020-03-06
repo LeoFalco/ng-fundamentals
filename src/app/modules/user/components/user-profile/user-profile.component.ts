@@ -13,34 +13,23 @@ import { AuthService } from '../../../../services/auth/auth.service';
 export class UserProfileComponent implements OnInit {
 
   profileForm: FormGroup;
-  firstName: FormControl;
-  lastName: FormControl;
+  nickName: FormControl;
 
   constructor(private authService: AuthService, private router: Router) { }
 
   ngOnInit(): void {
-    this.firstName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-z].*')]);
-    this.lastName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-z].*')]);
+    this.nickName = new FormControl('', [Validators.required, Validators.pattern('[a-zA-z].*')]);
 
     this.profileForm = new FormGroup({
-      firstName: this.firstName,
-      lastName: this.lastName
+      nickName: this.nickName
     });
 
     this.authService.user$.pipe(first()).toPromise().then(currentUser => {
-
-      const names = currentUser.displayName.split(' ');
-
-      const [firstName, ...lastNameArray] = names;
-
-      const lastName = lastNameArray.join(' ');
-      this.firstName.setValue(currentUser.firstName || firstName);
-      this.lastName.setValue(currentUser.lastName || lastName);
+      this.nickName.setValue(currentUser.nickName || '');
     });
-
   }
 
-  saveProfile(formValue: { firstName: string, lastName: string }) {
+  saveProfile(formValue: { nickName: string}) {
     if (this.profileForm.valid) {
     }
   }

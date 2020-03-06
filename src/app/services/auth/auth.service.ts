@@ -7,6 +7,7 @@ import { Observable, of } from 'rxjs';
 import { map, switchMap } from 'rxjs/operators';
 
 import { User } from './../../models/model';
+import { trigger } from '@angular/animations';
 
 const GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
 
@@ -14,6 +15,8 @@ const GoogleAuthProvider = firebase.auth.GoogleAuthProvider;
   providedIn: 'root'
 })
 export class AuthService {
+  // tslint:disable-next-line: max-line-length
+  private static DEFAULT_PROFILE_PIC = 'https://firebasestorage.googleapis.com/v0/b/angular-events-d24fd.appspot.com/o/assets%2Fprofile.jpeg?alt=media&token=42e64e8d-ded6-44f7-b1d5-993dec021466';
 
   user$: Observable<User>;
 
@@ -32,18 +35,33 @@ export class AuthService {
     );
   }
 
+  private nickName(displayName: string, email: string) {
+
+    if (displayName) {
+      return displayName.split(' ')[0]
+    }
+
+    if (email) {
+      return email.split(/['\\.-_']/)[0]
+    }
+
+    return '';
+  }
   private async updateUserData(user: User) {
     // Sets user data to firestore on login
-    const userRef = this.afs.doc<User>(`users/${user.uid}`);
+    const userDoc = this.afs.doc<User>(`users/${user.uid}`);
 
     const data = {
       uid: user.uid,
       email: user.email,
       displayName: user.displayName,
-      photoURL: user.photoURL
+      nickName: this.nickName(user.displayName, user.email),
+      photoURL: user.photoURL || AuthService.DEFAULT_PROFILE_PIC
     };
 
-    return userRef.set(data, { merge: true });
+    await userDoc.set(data, { merge: true });
+
+    return data;
   }
 
   async logout(): Promise<void> {
@@ -51,16 +69,17 @@ export class AuthService {
     this.router.navigate(['/']);
   }
 
-  async loginWithEmailAndPass(email: string, password: string): Promise<void> {
+  async loginWithEmailAndPass(email: string, password: string): Promise<User> {
     const userCredential = await this.afAuth.signInWithEmailAndPassword(email, password);
-    this.updateUserData(userCredential.user);
-
+    return this.updateUserData(userCredential.user);
   }
 
-  async loginWithGoogle(): Promise<void> {
+  async loginWithGoogle(): Promise<User> {
+    console.log('antes')
     const userCredential = await this.afAuth.signInWithPopup(new GoogleAuthProvider());
-    this.updateUserData(userCredential.user);
-    console.log(userCredential);
+    console.log('depois')
+
+    return this.updateUserData(userCredential.user);
   }
 
   isAuthenticated(): Observable<boolean> {

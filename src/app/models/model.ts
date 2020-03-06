@@ -37,6 +37,8 @@ export interface User {
   email: string;
   displayName: string;
   photoURL: string;
+  nickName?: string;
+
   firstName?: string;
   lastName?: string;
 }

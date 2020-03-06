@@ -36,7 +36,7 @@ const firebaseConfig = {
   imports: [
     BrowserModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot(routes, { enableTracing: true }),
+    RouterModule.forRoot(routes, { enableTracing: false }),
     NgxSpinnerModule,
     FormsModule,
     ReactiveFormsModule,

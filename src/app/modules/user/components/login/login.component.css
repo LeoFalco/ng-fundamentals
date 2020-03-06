@@ -16,3 +16,49 @@ em {
 .right {
   float: right;
 }
+
+
+.shadow {
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+.card {
+  background-color: #4e5d6c;
+  border-radius: 5px;
+  padding: 15px;
+}
+
+.w-100 {
+  width: 100%;
+}
+
+
+.mh-50 {
+  height: 50px;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.left {
+  float: left;
+}
+
+.right {
+  float: right;
+}
+
+
+.centered-text {
+  text-align: center;
+}
+.centered {
+  padding-top: 50px;
+  display: flex;
+  justify-content: center;
+
+}
+
+.btn-secondary:hover {
+  color: rgb(48, 48, 48);
+  background-color: #cccccc;
+}

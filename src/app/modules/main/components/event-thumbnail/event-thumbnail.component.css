@@ -4,7 +4,11 @@
 
 
 .thumbnail {
-  min-height: 210px;
+  display: flexbox;
+  justify-content: space-between;
+  flex-direction: row;
+  transition: all .1s;
+  border-radius: 10px;
 }
 
 .green {
@@ -14,4 +18,34 @@
 
 .bold {
   font-weight: bold;
+}
+
+
+.thumbnail:hover {
+  transform: scale(1.03);
+  transition: all .2s;
+  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+}
+
+h2 {
+  margin: 0px;
+}
+
+.img img {
+  float: right;
+  vertical-align: center;
+  border-radius: 5px;
+  max-height: 180px;
+  min-height: 100px;
+  max-width: 150px;
+  object-fit: contain;
+
+}
+
+.flex {
+  min-height: 180px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
 }

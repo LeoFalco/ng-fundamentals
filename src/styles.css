@@ -32,3 +32,31 @@ button {
 .toast-warning {
   background-color: #f89406;
 }
+
+.toast {
+  top: 50px;
+}
+
+
+.active {
+  border-radius: 24px;
+}
+
+
+.navbar-default .navbar-nav>li>a:hover, .navbar-default .navbar-nav>li>a:focus {
+  color: #ebebeb;
+  background-color: #485563;
+  border-radius: 24px;
+  transition: all .3 ease;
+}
+
+.btn:hover {
+  border-radius: 0px 24px 24px 0px;
+}
+
+.btn {
+}
+
+h2 {
+  margin: 0px;
+}
