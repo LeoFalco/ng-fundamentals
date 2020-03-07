@@ -1,11 +1,11 @@
 import { Credential, User } from './../../../../models/model';
-import { AuthService, IAuthService } from './../../../../services/auth/auth.service';
+import { AuthService } from './../../../../services/auth/auth.service';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { CreateEventComponent } from './create-event.component';
 
 
-class MockAuthService implements IAuthService {
+class MockAuthService {
 
   login(credential: Credential): User {
     return null;
