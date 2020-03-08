@@ -20,6 +20,7 @@ import { EventListComponent } from './components/event-list/event-list.component
 import { EventThumbnailComponent } from './components/event-thumbnail/event-thumbnail.component';
 import { NavBarComponent } from './components/nav-bar/nav-bar.component';
 import { RootComponent } from './components/root/root.component';
+import { SessionListComponent } from './components/session-list/session-list.component';
 
 const firebaseConfig = {
   apiKey: 'AIzaSyCZRjo3xwPvZOyNdpprmjwBlG12qwqrqQ8',
@@ -53,7 +54,8 @@ const firebaseConfig = {
     EventDetailComponent,
     CreateEventComponent,
     NotFoundComponent,
-    CreateSessionComponent
+    CreateSessionComponent,
+    SessionListComponent
   ],
   providers: [
     { provide: 'canDeactivateCreateEventComponent', useValue: canDeactivateCreateEventComponent }

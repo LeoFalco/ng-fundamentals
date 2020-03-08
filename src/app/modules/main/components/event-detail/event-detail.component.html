@@ -1,4 +1,4 @@
-<div class="container" *ngIf="event">
+<div class="container-fluid" *ngIf="event">
   <img [src]="event?.imageUrl" [alt]="event?.name" class="event-image">
 
   <div class="row">
@@ -27,4 +27,8 @@
       </div>
     </div>
   </div>
+
+  <hr>
+
+  <app-session-list [sessions]="event?.sessions"></app-session-list>
 </div>
