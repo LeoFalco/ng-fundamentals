@@ -16,9 +16,7 @@ export class EventDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private eventService: EventService,
-    private activatedRoute: ActivatedRoute,
-    private spinner: NgxSpinnerService) {
-
+    private activatedRoute: ActivatedRoute) {
   }
 
   ngOnInit(): void {

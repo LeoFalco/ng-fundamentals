@@ -25,6 +25,7 @@
     "@angular/router": "~9.0.2",
     "@types/jquery": "^3.3.33",
     "@types/toastr": "^2.1.37",
+    "angularfire-mock": "git+https://github.com/justingrayston/angularfire-mock.git",
     "favico": "^1.2.2",
     "favico.js": "^0.3.10",
     "firebase": "^7.8.0",

@@ -9,14 +9,10 @@
   }
 }
 
-.navbar.navbar-default {
+/* .navbar.navbar-default {
   margin-left: -15px;
   margin-right: -15px;
-}
-
-.navbar-default .navbar-nav>li>a:hover {
-
-}
+} */
 
 .navbar-default .navbar-nav>li>a {
   margin-left: 5px;
@@ -34,7 +30,7 @@
 
 .fixed-top {
   position: fixed;
-  width: 100%;
+  width: calc(100vw - 30px);
   z-index: 1;
 }
 
@@ -58,7 +54,6 @@
 
 .container-fluid {
   display: flex;
-  /* justify-content: space-evenly;*/
   flex-direction: row;
   vertical-align: center;
   align-items: center;

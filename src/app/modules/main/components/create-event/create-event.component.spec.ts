@@ -1,33 +1,8 @@
-import { Credential, User } from './../../../../models/model';
-import { AuthService } from './../../../../services/auth/auth.service';
+import { FormsModule } from '@angular/forms';
 import { async, ComponentFixture, TestBed } from '@angular/core/testing';
-
+import { Router, RouterModule } from '@angular/router';
 import { CreateEventComponent } from './create-event.component';
-
-
-class MockAuthService {
-
-  login(credential: Credential): User {
-    return null;
-  }
-
-  logout() {
-
-  }
-
-  isAuthenticated() {
-    return false;
-  }
-
-  currentUser() {
-    return null;
-  }
-
-  createUser(credential: Credential, user: User): User {
-
-    return null;
-  }
-}
+import { routes } from '../../../../routes/routes';
 
 describe('CreateEventComponent', () => {
   let component: CreateEventComponent;
@@ -35,8 +10,9 @@ describe('CreateEventComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
+      imports: [RouterModule.forRoot(routes), FormsModule],
       declarations: [CreateEventComponent],
-      providers: [{ provide: AuthService, useClass: MockAuthService }]
+      providers: []
     })
       .compileComponents();
   }));
