@@ -2,7 +2,7 @@
   <h1>Upcomming asss events</h1>
   <hr>
   <div class="row">
-    <div class="col-md-4" *ngFor="let event of events | async">
+    <div class="col-sm-12 col-md-6 col-lg-4 col-xl-6" *ngFor="let event of events | async">
       <app-event-thumbnail [event]="event"></app-event-thumbnail>
     </div>
   </div>

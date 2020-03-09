@@ -1,7 +1,7 @@
 <div class="navbar navbar-default fixed-top shadow">
   <div class="container-fluid">
     <div class="navbar-header">
-      <a class="navbar-brand">Angular Events</a>
+      <a class="navbar-brand" routerLink="/">Angular Events</a>
     </div>
 
       <ul class="nav navbar-nav">
@@ -38,8 +38,7 @@
 
 <ng-template #profile>
   <a *ngIf="authService.user$ | async as user;" routerLink="/user/profile" routerLinkActive="active" class="nopad">
-    <img [src]="user.photoURL" class="avatar">
-    Welcome {{ user.nickName }}
+    <img [src]="user.photoURL" class="avatar">{{ user.nickName }}
   </a>
 </ng-template>
 

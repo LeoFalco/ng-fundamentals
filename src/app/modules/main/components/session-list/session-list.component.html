@@ -1,11 +1,31 @@
-<div class="row" *ngFor="let session of sessions">
-  <div class="col-md-12">
-    <div class="well">
-        <h4>{{session.name}}</h4>
-        <h6>{{session.presenter}}</h6>
-        <span>Duration: {{session.duration}}</span><br />
-        <span>Level: {{session.level}}</span>
-        <p>{{session.abstract}}</p>
+<div>
+  <div class="row">
+    <div class="col-xs-6 col-sm-3 col-md-2">
+      <h3 style="margin-top: 20px; margin-bottom: 20px;">Sessions</h3>
+    </div>
+    <div class="col-xs-6 col-sm-3 col-md-2">
+      <button *ngIf="!isAddDisabled()" class="btn btn-success ajust-margin" (click)="toggleMode()" [disabled]="isAddDisabled()">Add Session</button>
     </div>
   </div>
+
+  <div *ngIf="mode == 'list'; then list else add"></div>
 </div>
+
+<ng-template #list>
+  <div class="row" *ngFor="let session of sessions">
+    <div class="col-md-12">
+      <div class="well">
+        <h4>{{ session.name }}</h4>
+        <h6>{{ session.presenter }}</h6>
+        <span>Duration: {{ session.duration }}</span>
+        <br />
+        <span>Level: {{ session.level }}</span>
+        <p>{{ session.abstract }}</p>
+      </div>
+    </div>
+  </div>
+</ng-template>
+
+<ng-template #add>
+  <app-create-session></app-create-session>
+</ng-template>

@@ -3,12 +3,6 @@
 }
 
 
-@media(max-width: 991px){
-  #searchForm{
-    display: none;
-  }
-}
-
 
 .navbar-default .navbar-nav>li>a {
   margin-left: 5px;
@@ -55,6 +49,18 @@
   align-items: center;
   height: 50px;
 }
+
+/*
+@media(max-width: 786px){
+  .container-fluid {
+    height: 100px;
+  }
+
+  .navbar-brand{
+    font-family: 12px;
+  }
+}
+*/
 .navbar-right{
   justify-self: flex-end;
 }

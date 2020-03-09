@@ -1,8 +1,9 @@
 <div class="well hoverwell thumbnail" [routerLink]="['/events', event.id]">
-
   <div class="row flex">
-
-    <div class="col-md-8">
+    <div class="col-md-4 img hidden-xs-down">
+      <img [src]="event.imageUrl" [alt]="event.name" />
+    </div>
+    <div class="col-md-8 col-xs-12">
       <h2>{{ event.name }}</h2>
       <div>Date: {{ event.date }}</div>
       <div [ngSwitch]="event.time" [ngClass]="getStartTimeClass()">
@@ -19,14 +20,6 @@
       <div *ngIf="event.onlineUrl">
         <span>Online Url : {{ event.onlineUrl }} </span>
       </div>
-
     </div>
-    <div class="col-md-4 img">
-        <img [src]="event.imageUrl" [alt]="event.name">
-    </div>
-
   </div>
-
-
-
 </div>

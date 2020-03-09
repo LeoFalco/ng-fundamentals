@@ -11,10 +11,19 @@ export class SessionListComponent implements OnInit {
   @Input()
   sessions: Session[];
 
+  mode: 'list' | 'add' = 'list';
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  isAddDisabled() {
+    return this.mode === 'add';
+  }
+
+  toggleMode() {
+    this.mode === 'list' ? this.mode = 'add' : this.mode = 'list';
   }
 
 }

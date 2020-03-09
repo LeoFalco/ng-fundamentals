@@ -2,29 +2,26 @@
   color: #bbb;
 }
 
-
 .thumbnail {
   display: flexbox;
   justify-content: space-between;
   flex-direction: row;
-  transition: all .1s;
+  transition: all 0.1s;
   border-radius: 10px;
 }
 
 .green {
-  color: #003300 !important
+  color: #003300 !important;
 }
-
 
 .bold {
   font-weight: bold;
 }
 
-
 .thumbnail:hover {
   transform: scale(1.03);
-  transition: all .2s;
-  box-shadow: 0 .5rem 1rem rgba(0,0,0,.15)!important;
+  transition: all 0.2s;
+  box-shadow: 0 0.5rem 1rem rgba(0, 0, 0, 0.15) !important;
 }
 
 h2 {
@@ -39,7 +36,6 @@ h2 {
   min-height: 100px;
   max-width: 150px;
   object-fit: contain;
-
 }
 
 .flex {
@@ -48,4 +44,13 @@ h2 {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
+}
+
+@media (max-width: 425px) {
+  .flex {
+    flex-direction: column;
+  }
+  .img {
+    margin-bottom: 10px;
+  }
 }
