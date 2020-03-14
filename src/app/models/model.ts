@@ -18,7 +18,7 @@ export interface Location {
 
 
 export interface Session {
-  id: number;
+  id: string;
   name: string;
   presenter: string;
   duration: number;

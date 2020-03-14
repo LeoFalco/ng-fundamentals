@@ -12,7 +12,7 @@
 </div>
 
 <ng-template #list>
-  <div class="row" *ngFor="let session of sessions">
+  <div class="row" *ngFor="let session of sessions | async">
     <div class="col-md-12">
       <div class="well">
         <h4>{{ session.name }}</h4>
@@ -27,5 +27,5 @@
 </ng-template>
 
 <ng-template #add>
-  <app-create-session></app-create-session>
+  <app-create-session [eventId]="eventId" (saved)="toggleMode()"></app-create-session>
 </ng-template>
